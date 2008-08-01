@@ -17,14 +17,12 @@
 #include <openssl/sha.h>
 
 #import "XMPPConnection.h"
-#import "ETXMLParser.h"
+#import <EtoileXML/ETXMLParser.h>
 #import "query_jabber_iq_auth.h"
 #import "StreamFeatures.h"
 #import "DefaultHandler.h"
 #import "Presence.h"
 #import "XMPPAccount.h"
-//TODO: Remove this
-#import "../JabberApp.h"
 //#import "XMLLog.h"
 #import "NSData+Base64.h"
 

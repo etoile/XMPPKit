@@ -14,8 +14,6 @@
 #import "XMPPAccount.h"
 #import "Roster.h"
 #import "JID.h"
-//TODO: Remove this:
-#import "../JabberApp.h"
 
 NSString * passwordForJID(JID * aJID)
 {
