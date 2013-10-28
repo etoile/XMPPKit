@@ -7,7 +7,9 @@
 //
 
 #import "XMPPConversation.h"
+#ifdef WITH_XMPP_OBJECTSTORE
 #import "XMPPObjectStore.h"
+#endif
 #import "XMPPMessage.h"
 
 static NSMutableDictionary * conversations = nil;
@@ -110,6 +112,7 @@ static NSMutableArray * filters;
 	[newMessage writeToXMLWriter: [connection xmlWriter]];
 }
 
+#ifdef WITH_XMPP_OBJECTSTORE
 - (XMPPObjectStore*) objectStoreForObjectWithUUID: (ETUUID*)uuid
                                    andApplication: (NSString*)registeredName
 {
@@ -121,6 +124,7 @@ static NSMutableArray * filters;
 	[store beginObjectWithUUID: uuid andApplication: registeredName];
 	return store;
 }
+#endif
 
 //If the corespondent's presence changes, we may wish to talk to a different one of their identities.  Check this, then update the UI.
 - (void) updatePresence:(NSNotification*)_notification

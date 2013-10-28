@@ -357,7 +357,7 @@ static NSString * avatarCachePath = nil;
 #else
 			[imageData writeToFile:[avatarCachePath stringByAppendingString:imageHash]
 						   options:0
-							 error:(id*)0];
+							 error:NULL];
 #endif
 			if(![imageHash isEqualToString:currentHash])
 			{

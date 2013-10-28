@@ -100,7 +100,7 @@ static NSDictionary * STANZA_KEYS;
         }
 
         SUPERINIT;
-        ASSIGN(res, [[NSHost currentHost] name]);
+        res = [[NSHost currentHost] name];
         //Get the log class, if it has been built
         xmlLog = NSClassFromString(@"XMLLog");
         account = anAccount;
@@ -124,14 +124,14 @@ static NSDictionary * STANZA_KEYS;
 - (void) reconnectToJabberServer
 {
         NSLog(@"Connecting...");
-        ASSIGN(socket, [ETSocket socketConnectedToRemoteHost: serverHost
-                                                  forService: @"xmpp-client"]);
+        socket = [ETSocket socketConnectedToRemoteHost: serverHost
+                                                  forService: @"xmpp-client"];
         if (nil == socket)
         {
                 // Legacy service description for operating systems (e.g. OS X) that
                 // haven't updated /etc/services to the standardised version.
-                ASSIGN(socket, [ETSocket socketConnectedToRemoteHost: serverHost
-                                                                                                  forService: @"jabber-client"]);
+                socket = [ETSocket socketConnectedToRemoteHost: serverHost
+                                                                                                  forService: @"jabber-client"];
                 if (nil == socket)
                 {
                         NSLog(@"Connect failing\n");
@@ -156,16 +156,16 @@ static NSDictionary * STANZA_KEYS;
                                            withJID:(JID*) aJID
                                           password:(NSString*) password
 {
-        ASSIGN(user, [aJID node]);
-        ASSIGN(server, [aJID domain]);
+        user = [aJID node];
+        server = [aJID domain];
         pass=password;
         if (jabberServer == nil)
         {
-                ASSIGN(serverHost, server);
+                serverHost = server;
         }
         else
         {
-                ASSIGN(serverHost, jabberServer);
+                serverHost = jabberServer;
         }
         NSLog(@"Connecting to %@ with username %@ and password %@", serverHost, user, pass);
         [self reconnectToJabberServer];
@@ -539,7 +539,7 @@ static NSDictionary * STANZA_KEYS;
 @implementation XMPPUnboundConnection
 - (void) addstreamFeatures:(NSDictionary*) aFeatureSet
 {
-        ASSIGN(streamFeatures, aFeatureSet);
+        streamFeatures = aFeatureSet;
         if ([aFeatureSet objectForKey:@"bind"] != nil)
         {
                 [self bind];

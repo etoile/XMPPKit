@@ -10,7 +10,9 @@
 #import <EtoileXML/ETXMLString.h>
 #import <EtoileXML/ETXMLXHTML-IMParser.h>
 #import "XMPPError.h"
+#ifdef WITH_XMPP_OBJECTSTORE
 #import "XMPPObjectStore.h"
+#endif
 #import "XMPPMessage.h"
 
 static XMPPMessageStanzaFactory * sharedInstance;
@@ -27,9 +29,11 @@ static XMPPMessageStanzaFactory * sharedInstance;
 #ifndef WITHOUT_XHTML_IM
 	[sharedInstance addHandler:[ETXMLXHTML_IMParser class] forTag:@"html"];
 #endif
+#ifdef WITH_XMPP_OBJECTSTORE
 	[sharedInstance addHandler: [XMPPObjectStore class]
 	                    forTag: @"coreobject"
 	               inNamespace: @"http://www.etoileos.com/CoreObject"];
+#endif
 }
 
 + (id) sharedStazaFactory
