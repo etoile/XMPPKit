@@ -74,50 +74,50 @@
 		668A6C56181EE0F300D9341A /* XMPPTimestamp.m in Sources */ = {isa = PBXBuildFile; fileRef = 668A6C0B181EE0F300D9341A /* XMPPTimestamp.m */; };
 		668A6C57181EE0F300D9341A /* XMPPvCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 668A6C0C181EE0F300D9341A /* XMPPvCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		668A6C58181EE0F300D9341A /* XMPPvCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 668A6C0D181EE0F300D9341A /* XMPPvCard.m */; };
-		668A6C6F181EE27F00D9341A /* EtoileFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668A6C66181EE26D00D9341A /* EtoileFoundation.framework */; };
-		668A6C70181EE27F00D9341A /* EtoileXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668A6C64181EE26D00D9341A /* EtoileXML.framework */; };
 		668A6C76181EE46C00D9341A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668A6C75181EE46C00D9341A /* AddressBook.framework */; };
+		66BFA4AB181EF2A60052CF4F /* EtoileFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668A6C9A181EF27300D9341A /* EtoileFoundation.framework */; };
+		66BFA4AC181EF2A60052CF4F /* EtoileXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668A6C98181EF27300D9341A /* EtoileXML.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		668A6C63181EE26D00D9341A /* PBXContainerItemProxy */ = {
+		668A6C97181EF27300D9341A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 668A6C5B181EE26D00D9341A /* EtoileFoundation.xcodeproj */;
+			containerPortal = 668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 60073EAD10074D26007272E6;
 			remoteInfo = EtoileXML;
 		};
-		668A6C65181EE26D00D9341A /* PBXContainerItemProxy */ = {
+		668A6C99181EF27300D9341A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 668A6C5B181EE26D00D9341A /* EtoileFoundation.xcodeproj */;
+			containerPortal = 668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 603647AC0E409244003377E0;
 			remoteInfo = EtoileFoundation;
 		};
-		668A6C67181EE26D00D9341A /* PBXContainerItemProxy */ = {
+		668A6C9B181EF27300D9341A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 668A6C5B181EE26D00D9341A /* EtoileFoundation.xcodeproj */;
+			containerPortal = 668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 609B66D70FEE80CE0007F842;
 			remoteInfo = TestEtoileFoundation;
 		};
-		668A6C69181EE26D00D9341A /* PBXContainerItemProxy */ = {
+		668A6C9D181EF27300D9341A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 668A6C5B181EE26D00D9341A /* EtoileFoundation.xcodeproj */;
+			containerPortal = 668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6072CF691360E144003256C5;
 			remoteInfo = PlugInExample;
 		};
-		668A6C6B181EE27700D9341A /* PBXContainerItemProxy */ = {
+		66BFA4A3181EF29D0052CF4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 668A6C5B181EE26D00D9341A /* EtoileFoundation.xcodeproj */;
+			containerPortal = 668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 60073EAC10074D26007272E6;
 			remoteInfo = EtoileXML;
 		};
-		668A6C6D181EE27700D9341A /* PBXContainerItemProxy */ = {
+		66BFA4A5181EF29D0052CF4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 668A6C5B181EE26D00D9341A /* EtoileFoundation.xcodeproj */;
+			containerPortal = 668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 603647AB0E409244003377E0;
 			remoteInfo = EtoileFoundation;
@@ -201,8 +201,8 @@
 		668A6C0C181EE0F300D9341A /* XMPPvCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPvCard.h; sourceTree = SOURCE_ROOT; };
 		668A6C0D181EE0F300D9341A /* XMPPvCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPvCard.m; sourceTree = SOURCE_ROOT; };
 		668A6C59181EE21600D9341A /* XMPPKit-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "XMPPKit-Info.plist"; sourceTree = SOURCE_ROOT; };
-		668A6C5B181EE26D00D9341A /* EtoileFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EtoileFoundation.xcodeproj; path = ../EtoileFoundation/EtoileFoundation.xcodeproj; sourceTree = "<group>"; };
 		668A6C75181EE46C00D9341A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EtoileFoundation.xcodeproj; path = ../EtoileFoundation/EtoileFoundation.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,9 +210,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66BFA4AB181EF2A60052CF4F /* EtoileFoundation.framework in Frameworks */,
+				66BFA4AC181EF2A60052CF4F /* EtoileXML.framework in Frameworks */,
 				668A6C76181EE46C00D9341A /* AddressBook.framework in Frameworks */,
-				668A6C6F181EE27F00D9341A /* EtoileFoundation.framework in Frameworks */,
-				668A6C70181EE27F00D9341A /* EtoileXML.framework in Frameworks */,
 				668A6B9B181EE0B100D9341A /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,7 +223,7 @@
 		6613BF57181EE05300840BE8 = {
 			isa = PBXGroup;
 			children = (
-				668A6C5B181EE26D00D9341A /* EtoileFoundation.xcodeproj */,
+				668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */,
 				668A6BA0181EE0B100D9341A /* XMPPKit */,
 				668A6B99181EE0B100D9341A /* Frameworks */,
 				668A6B98181EE0B100D9341A /* Products */,
@@ -336,13 +336,13 @@
 			path = XMPPKit;
 			sourceTree = "<group>";
 		};
-		668A6C5C181EE26D00D9341A /* Products */ = {
+		668A6C91181EF27300D9341A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				668A6C64181EE26D00D9341A /* EtoileXML.framework */,
-				668A6C66181EE26D00D9341A /* EtoileFoundation.framework */,
-				668A6C68181EE26D00D9341A /* TestEtoileFoundation.bundle */,
-				668A6C6A181EE26D00D9341A /* PlugInExample.plugin */,
+				668A6C98181EF27300D9341A /* EtoileXML.framework */,
+				668A6C9A181EF27300D9341A /* EtoileFoundation.framework */,
+				668A6C9C181EF27300D9341A /* TestEtoileFoundation.bundle */,
+				668A6C9E181EF27300D9341A /* PlugInExample.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -405,8 +405,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				668A6C6C181EE27700D9341A /* PBXTargetDependency */,
-				668A6C6E181EE27700D9341A /* PBXTargetDependency */,
+				66BFA4A4181EF29D0052CF4F /* PBXTargetDependency */,
+				66BFA4A6181EF29D0052CF4F /* PBXTargetDependency */,
 			);
 			name = XMPPKit;
 			productName = XMPPKit;
@@ -433,8 +433,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 668A6C5C181EE26D00D9341A /* Products */;
-					ProjectRef = 668A6C5B181EE26D00D9341A /* EtoileFoundation.xcodeproj */;
+					ProductGroup = 668A6C91181EF27300D9341A /* Products */;
+					ProjectRef = 668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -445,32 +445,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		668A6C64181EE26D00D9341A /* EtoileXML.framework */ = {
+		668A6C98181EF27300D9341A /* EtoileXML.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = EtoileXML.framework;
-			remoteRef = 668A6C63181EE26D00D9341A /* PBXContainerItemProxy */;
+			remoteRef = 668A6C97181EF27300D9341A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		668A6C66181EE26D00D9341A /* EtoileFoundation.framework */ = {
+		668A6C9A181EF27300D9341A /* EtoileFoundation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = EtoileFoundation.framework;
-			remoteRef = 668A6C65181EE26D00D9341A /* PBXContainerItemProxy */;
+			remoteRef = 668A6C99181EF27300D9341A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		668A6C68181EE26D00D9341A /* TestEtoileFoundation.bundle */ = {
+		668A6C9C181EF27300D9341A /* TestEtoileFoundation.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = TestEtoileFoundation.bundle;
-			remoteRef = 668A6C67181EE26D00D9341A /* PBXContainerItemProxy */;
+			remoteRef = 668A6C9B181EF27300D9341A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		668A6C6A181EE26D00D9341A /* PlugInExample.plugin */ = {
+		668A6C9E181EF27300D9341A /* PlugInExample.plugin */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = PlugInExample.plugin;
-			remoteRef = 668A6C69181EE26D00D9341A /* PBXContainerItemProxy */;
+			remoteRef = 668A6C9D181EF27300D9341A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -529,15 +529,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		668A6C6C181EE27700D9341A /* PBXTargetDependency */ = {
+		66BFA4A4181EF29D0052CF4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EtoileXML;
-			targetProxy = 668A6C6B181EE27700D9341A /* PBXContainerItemProxy */;
+			targetProxy = 66BFA4A3181EF29D0052CF4F /* PBXContainerItemProxy */;
 		};
-		668A6C6E181EE27700D9341A /* PBXTargetDependency */ = {
+		66BFA4A6181EF29D0052CF4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EtoileFoundation;
-			targetProxy = 668A6C6D181EE27700D9341A /* PBXContainerItemProxy */;
+			targetProxy = 66BFA4A5181EF29D0052CF4F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
