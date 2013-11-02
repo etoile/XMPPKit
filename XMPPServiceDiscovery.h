@@ -69,4 +69,9 @@
  * Returns the item ivar, instantiated after a service discovery for dico#item namespace
  */
 - (XMPPDiscoItems*) items;
+/**
+  * Sends a query to the specified Jid for the specified namespace; disco#info or disco#items
+  */
+- (void) sendQueryToJID:(const NSString*)jid node:(const NSString*)node inNamespace:(const NSString*)xmlns;
+
 @end
