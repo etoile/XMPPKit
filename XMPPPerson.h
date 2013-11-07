@@ -27,11 +27,11 @@
 @interface XMPPPerson : NSObject <PresenceHandler, XMPPInfoQueryStanzaHandler> {
 	NSMutableDictionary * identities;
 	NSMutableArray * identityList;
-	unsigned int identityCount;
+	NSUInteger identityCount;
 	NSString * name;
 	NSString * group;
 	id roster;
-	unsigned int hash;
+	NSUInteger hash;
 	ABPerson * vCard;
 	NSMutableDictionary * photoHashes;
 	NSString * currentHash;
@@ -70,7 +70,7 @@
 /**
  * Returns the number of identities.  Deprecated (use the array directly).
  */
-- (unsigned int) identities;
+- (NSUInteger) identities;
 /**
  * Returns the most identity that should be used to communicate with this person
  * when none is specified by the user.

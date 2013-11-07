@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <objc/runtime.h>
 
 #import "XMPPConnection.h"
 #import <EtoileFoundation/EtoileFoundation.h>
@@ -108,8 +109,8 @@ static NSDictionary * STANZA_KEYS;
         
         XMPPDefaultHandler * defaultHandler = [[XMPPDefaultHandler alloc] initWithAccount:account];
         dispatcher = [XMPPDispatcher dispatcherWithDefaultInfoQueryHandler:roster
-                                                                                         messageHandler:defaultHandler
-                                                                                        presenceHandler:roster];
+                                                            messageHandler:defaultHandler
+                                                           presenceHandler:roster];
         return self;
 }
 - (void)resetKeepAlive
@@ -132,6 +133,7 @@ static NSDictionary * STANZA_KEYS;
                 // haven't updated /etc/services to the standardised version.
                 socket = [ETSocket socketConnectedToRemoteHost: serverHost
                                                                                                   forService: @"jabber-client"];
+                NSLog(@"LA SOCKET %@", socket);
                 if (nil == socket)
                 {
                         NSLog(@"Connect failing\n");

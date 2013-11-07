@@ -102,7 +102,7 @@
 /**
  * Returns the number of groups.
  */
-- (int) numberOfGroups;
+- (NSUInteger) numberOfGroups;
 /**
  * Returns the number of groups when only groups containing people more online than
  * the given onlineState value are counted.

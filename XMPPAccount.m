@@ -8,6 +8,11 @@
 
 #ifndef GNUSTEP
 #include <Security/Security.h>
+#define kABJabberInstantProperty kABInstantMessageServiceJabber
+#define kABMSNInstantProperty kABInstantMessageServiceMSN
+#define kABAIMInstantProperty kABInstantMessageServiceAIM
+#define kABICQInstantProperty kABInstantMessageServiceICQ
+#define kABYahooInstantProperty kABInstantMessageServiceYahoo
 #endif
 
 #import <AddressBook/AddressBook.h>

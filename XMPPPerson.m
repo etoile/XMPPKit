@@ -14,6 +14,17 @@
 #import "XMPPServiceDiscovery.h"
 #import "ABPerson+merging.h"
 
+#ifndef GNUSTEP
+#define kABJabberInstantProperty kABInstantMessageServiceJabber
+#define kABMSNInstantProperty kABInstantMessageServiceMSN
+#define kABAIMInstantProperty kABInstantMessageServiceAIM
+#define kABICQInstantProperty kABInstantMessageServiceICQ
+#define kABYahooInstantProperty kABInstantMessageServiceYahoo
+#define kABMSNHomeLabel kABInstantMessageServiceMSN
+#define kABAIMHomeLabel kABInstantMessageServiceAIM
+#define kABJabberHomeLabel kABInstantMessageServiceJabber
+#endif
+
 static NSString * avatarCachePath = nil;
 
 @implementation XMPPPerson
@@ -30,8 +41,8 @@ static NSString * avatarCachePath = nil;
 		currentPath = [currentPath stringByAppendingPathComponent:[components objectAtIndex:i]];
 		if(![fm fileExistsAtPath:currentPath])
 		{
-			[fm createDirectoryAtPath:currentPath
-						   attributes:nil];			
+            NSError *err;
+			[fm createDirectoryAtPath:currentPath withIntermediateDirectories:YES attributes:nil error:&err];
 		}
 	}
 	[super initialize];
@@ -148,7 +159,7 @@ static NSString * avatarCachePath = nil;
 	return identity;
 }
 
-- (unsigned int) identities
+- (NSUInteger) identities
 {
 	return identityCount;
 }

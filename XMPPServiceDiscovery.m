@@ -50,7 +50,7 @@ static NSString * xmlnsXMPPDiscoItems = @"http://jabber.org/protocol/disco#items
 	             attributes: D(@"get", @"type",
 	                           jid, @"to",
 	                           iqID, @"id")];
-	if(node == nil)
+	if(node != nil) /*it was ==, breaking the execution on OS X*/
 	{
 		[xmlWriter startAndEndElement: @"query"
 		                   attributes: D(xmlns, @"xmlns",

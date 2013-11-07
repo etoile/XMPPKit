@@ -365,7 +365,7 @@
 	}
 	return [groupsByName objectForKey:aGroupName];
 }
-- (int) numberOfGroups
+- (NSUInteger) numberOfGroups
 {
 	return [groups count];
 }

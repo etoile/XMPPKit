@@ -10,12 +10,12 @@
 #import "XMPPIdentity.h"
 #import "CompareHack.h"
 
-int compareTest(id a, id  b, void* none)
+NSComparisonResult compareTest(id a, id  b, void* none)
 {
 	return [a compare:b];
 }
 
-int compareByPriority(id a, id  b, void* none)
+NSComparisonResult compareByPriority(id a, id  b, void* none)
 {
 	return [a compareByPriority:b];
 }

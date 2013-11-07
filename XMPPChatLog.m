@@ -17,6 +17,7 @@ static NSDictionary * ERROR_STYLE;
 + (void)initialize
 {
         //TODO: Set this using portable filesystem functions
+        NSError *error;
         NSString * processName = [[[NSProcessInfo processInfo] arguments] objectAtIndex:0];
         NSRange lastSlash = [processName rangeOfString:@"/" options:NSBackwardsSearch];
         if(lastSlash.location != NSNotFound)
@@ -29,8 +30,7 @@ static NSDictionary * ERROR_STYLE;
                                         processName];
         if(![[NSFileManager defaultManager] fileExistsAtPath:logBasePath])
         {
-                [[NSFileManager defaultManager] createDirectoryAtPath:logBasePath
-                                                                                                   attributes:nil];
+                [[NSFileManager defaultManager] createDirectoryAtPath:logBasePath withIntermediateDirectories:YES attributes:nil error:&error];
         }
         logBasePath = [logBasePath stringByAppendingString:@"/"];
         chatLogs = [[NSMutableDictionary alloc] init];
@@ -61,6 +61,7 @@ static NSDictionary * ERROR_STYLE;
 }
 - (void) initLog
 {
+        NSError *error;
         NSString * logFolder = [[NSString alloc] initWithFormat:@"%@%@/%@", 
                 logBasePath, 
                 [remoteEntity group], 
@@ -74,11 +75,9 @@ static NSDictionary * ERROR_STYLE;
                 //We can't create the log folder if the folder it's supposed to be in doesn't exist.
                 if(![[NSFileManager defaultManager] fileExistsAtPath:groupLogPath])
                 {
-                        [[NSFileManager defaultManager] createDirectoryAtPath:groupLogPath
-                                                                                                           attributes:nil];
+                    [[NSFileManager defaultManager] createDirectoryAtPath:groupLogPath withIntermediateDirectories:YES attributes:nil error:&error];
                 }
-                [[NSFileManager defaultManager] createDirectoryAtPath:logFolder
-                                                                                                   attributes:nil];
+                [[NSFileManager defaultManager] createDirectoryAtPath:logFolder withIntermediateDirectories:YES attributes:nil error:&error];
         }
         if(isXML)
         {

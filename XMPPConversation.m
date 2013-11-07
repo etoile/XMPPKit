@@ -12,7 +12,7 @@
 #endif
 #import "XMPPMessage.h"
 
-static NSMutableDictionary * conversations = nil;
+static NSMapTable * conversations = nil;
 static Class delegateClass = Nil;
 
 static NSMutableArray * filters;
@@ -21,7 +21,7 @@ static NSMutableArray * filters;
 @implementation XMPPConversation
 + (void) initialize
 {
-	conversations = [[NSMutableDictionary alloc] init];
+	conversations = [[NSMapTable alloc] init];
 	filters = [[NSMutableArray alloc] init];
 	[super initialize];
 }
@@ -58,7 +58,7 @@ static NSMutableArray * filters;
 {
 	if(conversations == nil)
 	{
-		conversations = [[NSMutableDictionary alloc] init];
+		conversations = [[NSMapTable alloc] init];
 	}
 	XMPPConversation * conversation = [conversations objectForKey:corespondent];
 	if(conversation == nil)

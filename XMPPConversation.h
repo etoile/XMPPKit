@@ -107,8 +107,10 @@
  * NOTE: You can't use the XMPP connection for anything but sending the
  * serialized object graph until you have called -finalize on the store.
  */
+#ifdef WITH_XMPP_OBJECTSTORE
 -(XMPPObjectStore*) objectStoreForObjectWithUUID: (ETUUID*)uuid
                                   andApplication: (NSString*)registeredName;
+#endif
 
 /**
  * Returns the delegate.

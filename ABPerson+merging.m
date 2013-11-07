@@ -58,6 +58,14 @@
 	}
 	else
 	{
+#ifndef GNUSTEP
+#define kABJabberInstantProperty kABInstantMessageServiceJabber
+#define kABMSNInstantProperty kABInstantMessageServiceMSN
+#define kABAIMInstantProperty kABInstantMessageServiceAIM 
+#define kABICQInstantProperty kABInstantMessageServiceICQ
+#define kABYahooInstantProperty kABInstantMessageServiceYahoo
+#endif
+        
 		ABMultiValue * addresses;
 		MATCH_IM_ADDRESS(kABJabberInstantProperty)
 		MATCH_IM_ADDRESS(kABMSNInstantProperty)

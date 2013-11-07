@@ -145,8 +145,8 @@ void addCdataWithLineBreaksToNode(ETXMLWriter *xmlWriter, NSString *cdata)
                  attributes: D(@"http://www.w3.org/1999/xhtml", @"xmlns")];
 	NSString * plainText = [self string];
 	NSRange attributeRange;
-	int start = 0;
-	int end = [self length];
+	NSUInteger start = 0;
+	NSInteger end = [self length];
 	while(start < end)
 	{
 		//Get the range and attributes:
@@ -185,7 +185,7 @@ void addCdataWithLineBreaksToNode(ETXMLWriter *xmlWriter, NSString *cdata)
 - (NSString*) stringValueWithExpandedLinks
 {
 		NSMutableString * string = [NSMutableString stringWithString:[self string]];
-		int length = [self length];
+		NSUInteger length = [self length];
 		int offset = 0;
 		for(int i = 0 ; i<length ; i++)
 		{

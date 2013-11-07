@@ -11,5 +11,5 @@
  * the XMPP code, and so the continued need for it should be tested 
  * periodically.
  */
-int compareTest(id a, id  b, void* none);
-int compareByPriority(id a, id  b, void* none);
+NSComparisonResult compareTest(id a, id  b, void* none);
+NSComparisonResult compareByPriority(id a, id  b, void* none);
