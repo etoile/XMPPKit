@@ -163,9 +163,6 @@ static NSDictionary * STANZA_KEYS;
         if (jabberServer == nil)
         {
                 serverHost = server;
-                /*FIXME: Temporaly fix, until a better solution is found*/
-                if ([[aJID domain] isEqualToString:@"talk.google.com"])
-                    server = @"gmail.com";
         }
         else
         {
