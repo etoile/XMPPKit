@@ -133,7 +133,6 @@ static NSDictionary * STANZA_KEYS;
                 // haven't updated /etc/services to the standardised version.
                 socket = [ETSocket socketConnectedToRemoteHost: serverHost
                                                                                                   forService: @"jabber-client"];
-                NSLog(@"LA SOCKET %@", socket);
                 if (nil == socket)
                 {
                         NSLog(@"Connect failing\n");
@@ -164,6 +163,9 @@ static NSDictionary * STANZA_KEYS;
         if (jabberServer == nil)
         {
                 serverHost = server;
+                /*FIXME: Temporaly fix, until a better solution is found*/
+                if ([[aJID domain] isEqualToString:@"talk.google.com"])
+                    server = @"gmail.com";
         }
         else
         {
