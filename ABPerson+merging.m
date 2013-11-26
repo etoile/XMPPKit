@@ -127,7 +127,9 @@
 					{
 						if(![otherValue isEqual:value])
 						{
-							NSLog(@"Not merging %@.  %@ => %@", property, value, otherValue);
+#ifndef DNDEBUG
+							ETLog(@"Not merging %@.  %@ => %@", property, value, otherValue);
+#endif
 							[failedProperties addObject:property];
 						}
 					}

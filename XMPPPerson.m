@@ -399,7 +399,8 @@ static NSString * avatarCachePath = nil;
 		result = [name caseInsensitiveCompare:[otherPerson name]];
 		//result = NSOrderedSame;
 	}
-	//NSLog(@"Comparing %@(%d) to %@(%d) gives %d", name, (int)myPresence, [otherPerson name], (int)otherPresence, result);	
+	//ETLog(@"Comparing %@(%d) to %@(%d) gives %d", name, (int)myPresence, [otherPerson name], (int)otherPresence, result);
+
 	return result;
 }
 

@@ -17,7 +17,6 @@
 #include <objc/runtime.h>
 
 #import "XMPPConnection.h"
-#import <EtoileFoundation/EtoileFoundation.h>
 #import "XMPPStreamFeatures.h"
 #import "XMPPDefaultHandler.h"
 #import "XMPPPresence.h"
@@ -29,7 +28,7 @@ static NSMutableDictionary * connections = nil;
 static NSDictionary * STANZA_CLASSES;
 static NSDictionary * STANZA_KEYS;
 
-#define SET_STATE(x) do { object_setClass(self, [XMPP ## x ## Connection class]); NSLog(@"Entering state %s", #x); } while(0)
+#define SET_STATE(x) do { object_setClass(self, [XMPP ## x ## Connection class]); ETLog(@"Entering state %s", #x); } while(0)
 
 @interface NSObject( XMLLogging)
 + (void) logIncomingXML:(NSString*)xml;
@@ -69,8 +68,9 @@ static NSDictionary * STANZA_KEYS;
                 @"iq", @"iq", 
                 @"streamFeatures", @"stream:features",
                 nil];
-        
-        NSLog(@"Stanza delegate classes: %@", STANZA_CLASSES);
+#ifndef DNDEBUG
+        ETLog(@"Stanza delegate classes: %@", STANZA_CLASSES);
+#endif
 }
 
 + (id) connectionWithAccount:(NSString*)_account
@@ -124,7 +124,7 @@ static NSDictionary * STANZA_KEYS;
 }
 - (void) reconnectToJabberServer
 {
-        NSLog(@"Connecting...");
+        ETLog(@"Connecting...");
         socket = [ETSocket socketConnectedToRemoteHost: serverHost
                                                   forService: @"xmpp-client"];
         if (nil == socket)
@@ -135,7 +135,7 @@ static NSDictionary * STANZA_KEYS;
                                                                                                   forService: @"jabber-client"];
                 if (nil == socket)
                 {
-                        NSLog(@"Connect failing\n");
+                        ETLog(@"Connect failing\n");
                         return;
                 }
         }
@@ -168,7 +168,9 @@ static NSDictionary * STANZA_KEYS;
         {
                 serverHost = jabberServer;
         }
-        NSLog(@"Connecting to %@ with username %@ and password %@", serverHost, user, pass);
+#ifndef DNDEBUG
+        ETLog(@"Connecting to %@ with username %@ and password %@", serverHost, user, pass);
+#endif
         [self reconnectToJabberServer];
 }
 
@@ -176,12 +178,14 @@ static NSDictionary * STANZA_KEYS;
 
 - (void)characters:(NSString *)_chars
 {
-        NSLog(@"Unexpected CDATA encountered in <stream:stream /> tag:\n\%@", _chars);
+        ETLog(@"Unexpected CDATA encountered in <stream:stream /> tag:\n\%@", _chars);
 }
 
 - (void)sendString: (NSString*)aString
 {
-        NSLog(@"SENT: %@", aString);
+#ifndef DNDEBUG
+        ETLog(@"SENT: %@", aString);
+#endif
         [self resetKeepAlive];
         [socket sendData: [aString dataUsingEncoding: NSUTF8StringEncoding]];
 }
@@ -200,8 +204,10 @@ static NSDictionary * STANZA_KEYS;
 - (void)startElement:(NSString *)aName
                   attributes:(NSDictionary *)_attributes
 {
-        NSLog(@"Parsing element: %@", aName);
-        
+#ifndef DNDEBUG
+        ETLog(@"Parsing element: %@", aName);
+#endif
+    
         if ([aName isEqualToString:@"stream:stream"])
         {
                 sessionID = [_attributes objectForKey:@"id"];
@@ -238,7 +244,7 @@ static NSDictionary * STANZA_KEYS;
         }
         else
         {
-                NSLog(@"No supported authentication mechanisms found.  Aborting.");
+                ETLog(@"No supported authentication mechanisms found.  Aborting.");
         }                
 }
 
@@ -440,7 +446,9 @@ static NSDictionary * STANZA_KEYS;
         NSString *xml = 
                 [[NSString alloc] initWithData: aData
                                        encoding: NSUTF8StringEncoding];
-        NSLog(@"Received: '%@'", xml);
+#ifndef DNDEBUG
+        ETLog(@"Received: '%@'", xml);
+#endif
         [xmlLog logIncomingXML: xml];
         [parser parseFromSource: xml];
 }
@@ -575,7 +583,7 @@ static NSDictionary * STANZA_KEYS;
 {
         if ([aName isEqualToString: @"proceed"])
         {
-                NSLog(@"SSL returned %d", [socket negotiateSSL]);
+                ETLog(@"SSL returned %d", [socket negotiateSSL]);
                 SET_STATE(Connecting);
                 // Reset the connection
                 [self receivedData: nil fromSocket: nil];

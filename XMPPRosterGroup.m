@@ -49,7 +49,9 @@
 	{
 		person = [XMPPPerson personWithIdentity:_identity forRoster:roster];
 		[peopleByName setObject:person forKey:[person name]];
-		NSLog(@"Adding new person %@", [person name]);
+#ifndef DNDEBUG
+		ETLog(@"Adding new person %@", [person name]);
+#endif
 		[people addObject:person];
 		[people sortUsingFunction:compareTest context:nil];
 	}
@@ -65,7 +67,9 @@
 	[person removeIdentity:_identity];
 	if([person identities] == 0)
 	{
-		NSLog(@"Removing person %@", [person name]);
+#ifndef DNDEBUG
+		ETLog(@"Removing person %@", [person name]);
+#endif
 		[people removeObject:person];
 		[peopleByName removeObjectForKey:[person name]];
 	}
@@ -95,7 +99,7 @@
 	for(unsigned int i=0 ; i<[people count] ; i++)
 	{
 		XMPPPerson* person = [people objectAtIndex:i];
-		//NSLog(@"Person in group %@[%d]: %@ (%d)", name, i, [person name], (int)[[[person defaultIdentity] presence] show]);
+		//ETLog(@"Person in group %@[%d]: %@ (%d)", name, i, [person name], (int)[[[person defaultIdentity] presence] show]); I tried to decomment putting it in a preprocessor statement, but it takes forever in the executon; FIXME
 		if([[[person defaultIdentity] presence] show] < hide)
 		{
 			count++;

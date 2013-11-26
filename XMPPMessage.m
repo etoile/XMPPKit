@@ -39,8 +39,9 @@ NSDictionary * MESSAGE_TYPES;
 	if((self = [super init])==nil){
 		return nil;
 	}
-
-	NSLog(@"Body (%@) %@", [aBody class], aBody);
+#ifndef DNDEBUG
+	ETLog(@"Body (%@) %@", [aBody class], aBody);
+#endif
 	if([aBody isKindOfClass:[NSString class]])
 	{
 		body = [aBody stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -222,7 +223,7 @@ NSDictionary * MESSAGE_TYPES;
 	}
 	else
 	{
-		NSLog(@"End of %@ tag received while parsing a message.  This probably indicates a bug.", aName);
+		ETLog(@"End of %@ tag received while parsing a message.  This probably indicates a bug.", aName);
 	}
 
 

@@ -22,7 +22,9 @@
         }
         features = [[NSMutableDictionary alloc] init];
         [features setObject:[NSMutableArray array] forKey:@"mechanisms"];
-        NSLog(@"Key is %@", aKey);
+#ifndef DNDEBUG
+        ETLog(@"Key is %@", aKey);
+#endif
         value = features;
         return self;
 }

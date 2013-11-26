@@ -71,7 +71,9 @@
         }
         else
         {
-                NSLog(@"Parsing vCard Element: %@", aName);
+#ifndef DNDEBUG
+                ETLog(@"Parsing vCard Element: %@", aName);
+#endif
                 [[[ETXMLString alloc] initWithXMLParser:parser
                                                     key:aName] startElement:aName
                                                                  attributes:attributes];

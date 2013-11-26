@@ -56,7 +56,9 @@
 
 - (void) addRosterFromQuery:(XMPPInfoQueryStanza*) rosterQuery
 {
-	NSLog(@"Parsing roster...");
+#ifndef DNDEBUG
+	ETLog(@"Parsing roster...");
+#endif
 	connection = [(XMPPAccount*)account connection];
 	dispatcher = [connection dispatcher];
 	if(disco == nil)
@@ -170,7 +172,9 @@
 
 - (void) handleInfoQuery:(XMPPInfoQueryStanza*)anIq
 {
-	//NSLog(@"Children of iq node: %@", [anIq children]);
+#ifndef DNDEBUG
+	ETLog(@"Children of iq node: %@", [anIq children]);
+#endif
 	if([[anIq children] objectForKey:@"RosterItems"] != nil)
 		{
 			[self addRosterFromQuery:anIq];

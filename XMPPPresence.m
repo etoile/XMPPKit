@@ -8,6 +8,7 @@
 
 #import <EtoileXML/ETXMLNode.h>
 #import <EtoileXML/ETXMLParser.h>
+#import <EtoileFoundation/EtoileCompatibility.h>
 #import "XMPPPresence.h"
 #import "XMPPPresenceStanzaFactory.h"
 
@@ -100,10 +101,14 @@ int PRESENCE_ICONS[] = {
 		NSString * presenceType = [attributes objectForKey:@"type"];
 		priority = 0;
 		onlineStatus = PRESENCE_UNKNOWN;
-		//NSLog(@"Presence from %@: %@", [attributes objectForKey:@"from"], presenceType);
+#ifndef DNDEBUG
+		ETLog(@"Presence from %@: %@", [attributes objectForKey:@"from"], presenceType);
+#endif
 		if(presenceType == nil || [presenceType isEqualToString:@"online"])
 		{
-			NSLog(@"Online");
+#ifndef DNDEBUG
+			ETLog(@"Online");
+#endif
 			onlineStatus = PRESENCE_ONLINE;
 			type = online;
 		}
@@ -130,7 +135,7 @@ int PRESENCE_ICONS[] = {
 		}
 		else
 		{
-			//NSLog(@"Presence stanza with unknown type received.");
+			//ETLog(@"Presence stanza with unknown type received.");
 		}
 	}
 	else if([aName isEqualToString:@"c"])

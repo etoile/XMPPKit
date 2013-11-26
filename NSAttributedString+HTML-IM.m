@@ -57,7 +57,9 @@ NSString * cssGenericFontFamily(NSFontSymbolicTraits traits)
 NSString * fontAttributes(NSFont * aFont)
 {
 	NSFontSymbolicTraits traits = [[aFont fontDescriptor] symbolicTraits];
-	NSLog(@"Traits: %x", traits);
+#ifndef DNDEBUG
+	ETLog(@"Traits: %x", traits);
+#endif
 	NSString * genericFamily = cssGenericFontFamily(traits);
 	NSMutableString * style;
 	if(genericFamily == nil)
@@ -138,8 +140,10 @@ void addCdataWithLineBreaksToNode(ETXMLWriter *xmlWriter, NSString *cdata)
 @implementation NSAttributedString (XHTML_IM)
 - (void)writeXHTMLIMToXMLWriter: (ETXMLWriter*)xmlWriter
 {
-	NSLog(@"Writing XHTML...");
-	[xmlWriter startElement: @"html" 
+#ifndef DNDEBUG
+	ETLog(@"Writing XHTML...");
+#endif
+	[xmlWriter startElement: @"html"
                  attributes: D(@"http://jabber.org/protocol/xhtml-im", @"xmlns")];
 	[xmlWriter startElement: @"body" 
                  attributes: D(@"http://www.w3.org/1999/xhtml", @"xmlns")];

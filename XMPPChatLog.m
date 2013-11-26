@@ -8,6 +8,7 @@
 
 #import "XMPPChatLog.h"
 #import "XMPPError.h"
+#import <EtoileFoundation/EtoileCompatibility.h>
 
 NSString * logBasePath;
 NSMutableDictionary * chatLogs;
@@ -165,7 +166,9 @@ static NSDictionary * ERROR_STYLE;
         //Check if today is stil today
         if([today dayOfCommonEra] != [[NSCalendarDate date] dayOfCommonEra])
         {
-                NSLog(@"Rolling over chat logs");
+#ifndef DNDEBG
+                ETLog(@"Rolling over chat logs");
+#endif
                 [self save];
                 today = [[NSCalendarDate alloc] init];
                 [self initLog];
@@ -297,7 +300,9 @@ static NSDictionary * ERROR_STYLE;
                 }
                 else
                 {
-                        NSLog(@"Saving log: \"%@\"", logFileName);
+#ifndef DNDEBUG
+                        ETLog(@"Saving log: \"%@\"", logFileName);
+#endif
                         NSFileHandle * logFile = [[NSFileHandle alloc] initWithFileDescriptor:fileno(fopen([logFileName UTF8String], "w")) closeOnDealloc:YES];
                         [logFile writeData:[log RTFFromRange:NSMakeRange(0,[(NSAttributedString*)log length]) documentAttributes:nil]];
                 }
