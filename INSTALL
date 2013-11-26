@@ -30,7 +30,7 @@ Square brackets "[ ]" are used to indicate optional parameters.
 
    Steps to build:
 
-   * make
+   * make [debugging=yes] (debugging=yes will build a debug version of the framework)
 
    * [sudo [-E]] make install
 

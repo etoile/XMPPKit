@@ -8,7 +8,12 @@ ${FRAMEWORK_NAME}_VERSION = 0.2
 LIBRARIES_DEPEND_UPON += -lEtoileFoundation -lEtoileXML -lAddresses \
         $(FND_LIBS) $(OBJC_LIBS) $(SYSTEM_LIBS)
 
+ifeq ($(debugging), yes) 
 ${FRAMEWORK_NAME}_OBJCFLAGS += -g -std=c99 -fobjc-arc
+else
+${FRAMEWORK_NAME}_OBJCFLAGS += -g -std=c99 -fobjc-arc -DDNDEBUG=1
+endif
+
 ${FRAMEWORK_NAME}_LDFLAGS += -g
 
 ${DOCUMENT_NAME}_AGSDOC_FLAGS += -MakeFrames YES
