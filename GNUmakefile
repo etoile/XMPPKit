@@ -50,7 +50,6 @@ ${FRAMEWORK_NAME}_OBJC_FILES = \
                                         XMPPAccount.m\
                                         XMPPConnection.m\
                                         XMPPError.m\
-                                        XMPPObjectStore.m\
                                         XMPPvCard.m\
                                         XMPPServiceDiscovery.m\
 
@@ -86,7 +85,6 @@ ${FRAMEWORK_NAME}_HEADER_FILES = \
                                         XMPPAccount.h\
                                         XMPPConnection.h\
                                         XMPPError.h\
-                                        XMPPObjectStore.h\
                                         XMPPvCard.h
 
 ${DOCUMENT_NAME}_AGSDOC_FILES = ${${FRAMEWORK_NAME}_HEADER_FILES}

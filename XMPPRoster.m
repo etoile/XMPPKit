@@ -14,6 +14,7 @@
 #import "CompareHack.h"
 #import "XMPPServiceDiscovery.h"
 #import <EtoileFoundation/EtoileFoundation.h>
+#import <EtoileXML/ETXMLWriter.h>
 
 @implementation XMPPRoster
 - (XMPPRoster*) initWithAccount:(id)anAccount

@@ -21,6 +21,8 @@
 #import "XMPPDefaultHandler.h"
 #import "XMPPPresence.h"
 #import "XMPPAccount.h"
+#import <EtoileXML/ETXMLParser.h>
+#import <EtoileXML/ETXMLWriter.h>
 
 
 static NSMutableDictionary * connections = nil;

@@ -10,6 +10,7 @@
 #import "XMPPAccount.h"
 #import "XMPPDiscoInfo.h"
 #import "XMPPDiscoItems.h"
+#import <EtoileXML/ETXMLWriter.h>
 
 static NSString * xmlnsXMPPDiscoInfo = @"http://jabber.org/protocol/disco#info";
 static NSString * xmlnsXMPPDiscoItems = @"http://jabber.org/protocol/disco#items";

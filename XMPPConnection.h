@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <EtoileFoundation/EtoileFoundation.h>
+#import <EtoileXML/ETXMLNullHandler.h>
 #import "XMPPDispatcher.h"
 #import "XMPPRoster.h"
 #import "XMPPPresence.h"
+
+@class ETXMLSocketWriter;
 
 /**
  * The XMPPConnection class represents a connection to an XMPP server.  It is the 

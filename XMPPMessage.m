@@ -10,7 +10,9 @@
 #include <wchar.h>
 #include <wctype.h>
 #import <AppKit/AppKit.h>
+#import <EtoileXML/ETXMLParser.h>
 #import <EtoileXML/ETXMLString.h>
+#import <EtoileXML/ETXMLWriter.h>
 #import "XMPPMessageStanzaFactory.h"
 #import "XMPPError.h"
 #import "NSAttributedString+HTML-IM.h"

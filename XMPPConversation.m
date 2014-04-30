@@ -11,6 +11,7 @@
 #import "XMPPObjectStore.h"
 #endif
 #import "XMPPMessage.h"
+#import <EtoileXML/ETXMLWriter.h>
 
 static NSMapTable * conversations = nil;
 static Class delegateClass = Nil;

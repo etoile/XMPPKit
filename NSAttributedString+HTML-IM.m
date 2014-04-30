@@ -8,6 +8,7 @@
 
 #import "NSAttributedString+HTML-IM.h"
 #import <EtoileFoundation/EtoileFoundation.h>
+#import <EtoileXML/ETXMLWriter.h>
 // Work around some GSBreakage
 #define NSFontFamiliyClassMask NSFontFamilyClassMask
 #import <AppKit/NSFontDescriptor.h>
