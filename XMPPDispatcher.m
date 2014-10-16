@@ -26,19 +26,20 @@
 				 messageHandler:(id <MessageHandler>)message 
 				presenceHandler:(id <PresenceHandler>)presence
 {
+    SUPERINIT;
+    iqHandlers = [[NSMutableDictionary alloc] init];
+    iqNamespaceHandlers = [[NSMutableDictionary alloc] init];
+    messageHandlers = [[NSMutableDictionary alloc] init];
+    presenceHandlers = [[NSMutableDictionary alloc] init];
+    
 	defaultIqHandler = iq;
 	defaultMessageHandler = message;
 	defaultPresenceHandler = presence;
-	return [self init];
+	return self;
 }
 - (id) init
 {
-	iqHandlers = [[NSMutableDictionary alloc] init];
-	iqNamespaceHandlers = [[NSMutableDictionary alloc] init];
-	messageHandlers = [[NSMutableDictionary alloc] init];
-	presenceHandlers = [[NSMutableDictionary alloc] init];
-	
-	return [super init];
+	return [self initWithDefaultInfoQueryHandler:nil messageHandler:nil presenceHandler:nil];
 }
 
 - (id) addInfoQueryHandler:(id <XMPPInfoQueryStanzaHandler>)handler forNamespace:(NSString*)aNamespace
