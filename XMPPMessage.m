@@ -31,12 +31,12 @@ NSDictionary * MESSAGE_TYPES;
 		nil];
 }
 	
-+ (id) messageWithBody:(id)aBody for:(JID*)aRecipient withSubject:(NSString*)aSubject type:(message_type_t)aType
++ (XMPPMessage*) messageWithBody:(id)aBody for:(JID*)aRecipient withSubject:(NSString*)aSubject type:(message_type_t)aType
 {
-	return [[XMPPMessage alloc] initWithBody:aBody for:aRecipient withSubject:aSubject type:aType];
+    return [[XMPPMessage alloc] initWithBody:aBody for:aRecipient withSubject:aSubject type:aType];
 }
 
-- (id) initWithBody:(id)aBody for:(JID*)aRecipient withSubject:(NSString*)aSubject type:(message_type_t)aType
+- (XMPPMessage*) initWithBody:(id)aBody for:(JID*)aRecipient withSubject:(NSString*)aSubject type:(message_type_t)aType
 {
 	if((self = [super init])==nil){
 		return nil;
@@ -71,7 +71,7 @@ NSDictionary * MESSAGE_TYPES;
 	}
 	unknownAttributes = [[NSMutableDictionary alloc] init];
 	timestamps = [[NSMutableArray alloc] init];
-	body = @"";//this make ever an empty body
+	body = @"";
 	shouldDisplay = YES;
 	return self;
 }
@@ -267,7 +267,4 @@ NSDictionary * MESSAGE_TYPES;
 {
 	return shouldDisplay;
 }
-
-
-
 @end

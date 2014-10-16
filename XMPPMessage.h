@@ -29,7 +29,7 @@ typedef enum {MESSAGE_TYPE_CHAT, MESSAGE_TYPE_ERROR, MESSAGE_TYPE_MESSAGE, MESSA
 	NSString * body;
 	XMPPError * error;
 	NSAttributedString * html;
-	NSMutableArray * timestamps;
+	NSMutableArray  * timestamps;
 	NSMutableDictionary * unknownAttributes;
 	BOOL shouldDisplay;
 }
@@ -39,11 +39,11 @@ typedef enum {MESSAGE_TYPE_CHAT, MESSAGE_TYPE_ERROR, MESSAGE_TYPE_MESSAGE, MESSA
  * MESSAGE,GROUPCHAT}.  Only those of MESSAGE_TYPE_MESSAGE should (generally)
  * include a subject.
  */
-+ (id) messageWithBody:(id)aBody for:(JID*)aRecipient withSubject:(NSString*)aSubject type:(message_type_t)aType;
++ (XMPPMessage*) messageWithBody:(id)aBody for:(JID*)aRecipient withSubject:(NSString*)aSubject type:(message_type_t)aType;
 /**
  * Initialise a new message.
  */
-- (id) initWithBody:(id)aBody for:(JID*)aRecipient withSubject:(NSString*)aSubject type:(message_type_t)aType;
+- (XMPPMessage*) initWithBody:(id)aBody for:(JID*)aRecipient withSubject:(NSString*)aSubject type:(message_type_t)aType;
 /**
  * Returns the JID of the sender (for incoming messages) or the recipient (for 
  * outgoing messages).
