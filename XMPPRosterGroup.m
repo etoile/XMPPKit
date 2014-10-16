@@ -19,17 +19,21 @@
 
 - (id) initWithRoster:(id)_roster
 {
-	if (!(self = [self init])) return nil;
-	roster = _roster;
+    SUPERINIT;
+    
+    if (roster == nil)
+        roster = nil;
+    else
+        roster = _roster;
+    
+    peopleByName = [[NSMutableDictionary alloc] init];
+    people = [[NSMutableArray alloc] init];
 	return self;
 }
 
 - (id) init
 {
-	roster = nil;
-	peopleByName = [[NSMutableDictionary alloc] init];
-	people = [[NSMutableArray alloc] init];
-	return [super init];
+    return [self initWithRoster:nil];
 }
 
 - (NSString*) groupName
