@@ -638,10 +638,6 @@ static NSDictionary * STANZA_KEYS;
 @implementation XMPPDroppedConnection
 - (void)receivedData: (NSData*)aData fromSocket: (ETSocket*)aSocket
 {
-    if (keepalive.valid)
-    {
-        [keepalive invalidate];
-    }
     socket = nil;
     [xmlWriter setSocket:nil];
     xmlWriter = nil;
