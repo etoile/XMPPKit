@@ -122,6 +122,20 @@
 			remoteGlobalIDString = 603647AB0E409244003377E0;
 			remoteInfo = EtoileFoundation;
 		};
+		FA8050E319FA22C800571A4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 602E12AE18B3A10E004F171B;
+			remoteInfo = "EtoileFoundation (iOS)";
+		};
+		FA8050E519FA22C800571A4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 668A6C90181EF27300D9341A /* EtoileFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 609A557718C209FE0096927F;
+			remoteInfo = "TestEtoileFoundation (iOS)";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -343,6 +357,8 @@
 				668A6C9A181EF27300D9341A /* EtoileFoundation.framework */,
 				668A6C9C181EF27300D9341A /* TestEtoileFoundation.bundle */,
 				668A6C9E181EF27300D9341A /* PlugInExample.plugin */,
+				FA8050E419FA22C800571A4A /* libEtoileFoundation.a */,
+				FA8050E619FA22C800571A4A /* TestEtoileFoundation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -471,6 +487,20 @@
 			fileType = wrapper.cfbundle;
 			path = PlugInExample.plugin;
 			remoteRef = 668A6C9D181EF27300D9341A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA8050E419FA22C800571A4A /* libEtoileFoundation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libEtoileFoundation.a;
+			remoteRef = FA8050E319FA22C800571A4A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA8050E619FA22C800571A4A /* TestEtoileFoundation.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestEtoileFoundation.app;
+			remoteRef = FA8050E519FA22C800571A4A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

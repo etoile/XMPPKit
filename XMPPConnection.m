@@ -49,6 +49,7 @@ static NSDictionary * STANZA_KEYS;
 @interface XMPPUnboundConnection : XMPPConnectedConnection @end
 @interface XMPPNoSessionConnection : XMPPConnectedConnection @end
 @interface XMPPLoggedInConnection : XMPPConnectedConnection @end
+@interface XMPPDroppedConnection : XMPPConnection @end
 
 @interface XMPPConnection (Private)
 - (void) legacyLogIn;
@@ -147,7 +148,6 @@ static NSDictionary * STANZA_KEYS;
         parser = [[ETXMLParser alloc] init];
         [parser pushContentHandler:self];
         [self resetKeepAlive];
-
         [socket setDelegate: self];
         xmlWriter = [ETXMLSocketWriter new];
         [xmlWriter setSocket: socket];
@@ -401,6 +401,11 @@ static NSDictionary * STANZA_KEYS;
         return xmlWriter;
 }
 
+- (BOOL) isDied
+{
+    return [socket connectionIsBroken];
+}
+
 @end
 
 /**
@@ -444,6 +449,13 @@ static NSDictionary * STANZA_KEYS;
 }
 - (void)receivedData: (NSData*)aData fromSocket: (ETSocket*)aSocket
 {
+        if ([self isDied])
+        {
+            NSLog(@"Connection Dropped!");
+            SET_STATE(Dropped);
+            [self receivedData:nil fromSocket:nil];
+            return;
+        }
         [self resetKeepAlive];
         NSString *xml = 
                 [[NSString alloc] initWithData: aData
@@ -494,6 +506,8 @@ static NSDictionary * STANZA_KEYS;
 {
         [self XMPPSend:@"</stream:stream>"];
         socket = nil;
+        [xmlWriter setSocket:nil];
+        xmlWriter = nil;
         SET_STATE(Offline);
 }
 - (void)receivedData: (NSData*)aData fromSocket: (ETSocket*)aSocket
@@ -621,3 +635,34 @@ static NSDictionary * STANZA_KEYS;
         [self handleInfoQuery: anIq];
 }
 @end
+@implementation XMPPDroppedConnection
+- (void)receivedData: (NSData*)aData fromSocket: (ETSocket*)aSocket
+{
+    if (keepalive.valid)
+    {
+        [keepalive invalidate];
+    }
+    socket = nil;
+    [xmlWriter setSocket:nil];
+    xmlWriter = nil;
+    [presenceDisplay setPresence:PRESENCE_OFFLINE withMessage:nil];
+    [roster offline];
+    NSTimer *connectionStabilizer = [NSTimer scheduledTimerWithTimeInterval: 5
+                                                                     target: self
+                                                                   selector: @selector(stabilizerHelper)
+                                                                   userInfo: nil
+                                                                    repeats: NO];
+    NSLog(@"Try to reconnect");
+    [self reconnectToJabberServer];
+    if (![[self className] isEqualToString:@"XMPPDroppedConnection"])
+    {
+        [connectionStabilizer invalidate];
+    }
+}
+
+- (void) stabilizerHelper
+{
+    [self receivedData:nil fromSocket:nil];
+}
+@end
+

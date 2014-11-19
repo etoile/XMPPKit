@@ -102,4 +102,8 @@
  * Returns the XML writer which can be used to send XML to the stream.
  */
 - (ETXMLSocketWriter*)xmlWriter;
+/**
+ * Checks if the connection is died
+ */
+- (BOOL) isDied;
 @end
